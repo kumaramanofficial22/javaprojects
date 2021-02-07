@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="dobDt" class="java.util.Date">
+     <property name="year" value="90"/>
+     <property name="month" value="10"/>
+     <property name="date" value="1"/>
+  </bean>
+  
+  <bean id="dojDt" class="java.util.Date">
+    <property name="year" value="114"/>
+    <property name="month" value="11"/>
+    <property name="date" value="1"/>
+  </bean>
+  
+  <bean id="sysDt" class="java.util.Date"></bean>
+
+    <bean id="sFactory" class="com.aman.beans.ShoeFactory">
+      <property name="sizes">
+         <list>
+           <value>10</value>
+           <value>10.6f</value>
+           <value>12</value>
+         </list>      
+      </property>
+    </bean>
+    
+    <bean id="clg" class="com.aman.beans.College">
+      <property name="studNames">
+        <list>
+           <value>Aman</value>
+           <value>Shweta</value>
+           <value>Vrushali</value>
+        </list>
+      </property>
+      
+      <property name="listDates">
+          <list>
+           <ref bean="sysDt"/>
+           <ref bean="dobDt"/>
+           <ref bean="dojDt"/>
+           <ref bean="sysDt"/>
+          </list>
+      </property>
+    </bean>
+    
+    <bean id="airtel" class="com.aman.beans.Airtel">
+    <property name="availableNumbers">
+       <set>
+          <value>87878787987</value>
+          <value>87878787988</value>
+          <value>87878787989</value>
+          <value>87878787986</value>      
+       </set>
+       </property>
+       
+       <property name="setDates">
+          <set>
+             <ref bean="sysDt"/>
+             <ref bean="dobDt"/>
+             <ref bean="dojDt"/>
+             <ref bean="sysDt"/>
+          </set>
+       </property>
+    </bean>
+    
+    <bean id="ft" class="com.aman.beans.FacultyInfo">
+      <constructor-arg>
+         <map>
+         <entry>
+            <key><value>HariKrishna</value></key>
+            <value>Core Java</value>
+            </entry>
+            <entry key="Murli" value="Oracle"/>
+            <entry key="Natraj Sir" value="Spring"/>
+         </map>         
+      </constructor-arg>
+      
+        <constructor-arg>
+         <map>
+           <entry>
+             <key><value>doj</value></key>
+               <ref bean="dojDt"/>
+           </entry>
+           <entry key="dob" value-ref="dobDt"/>
+           <entry key="sysDt" value-ref="sysDt"/>
+          </map>     
+      </constructor-arg>
+      
+    </bean>
+    
+    <bean id="fst" class="com.aman.beans.FruitStore">
+       <property name="fruitInfo">
+          <props>
+             <prop key="banana">yellow</prop>
+             <prop key="apple">Red</prop>
+             <prop key="Orange">Safron</prop>
+             <prop key="Mango">Green</prop>
+          </props>
+       </property>
+    </bean>
+    
+</beans>
